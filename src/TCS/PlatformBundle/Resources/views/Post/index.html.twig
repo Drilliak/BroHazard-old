@@ -5,3 +5,11 @@
 {% block stylesheets %}
     {{ parent() }}
 {% endblock %}
+
+
+{% block body %}
+    {% for post in posts %}
+        <p> {{ post.content }} </p>
+        <p> {{ post.creationDate|date("m/d/Y") }}</p>
+    {% endfor %}
+{% endblock %}

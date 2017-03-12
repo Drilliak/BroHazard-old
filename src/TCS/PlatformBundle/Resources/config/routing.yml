@@ -2,3 +2,9 @@ tcs_platform_homepage:
     path:     /accueil
     defaults:
         _controller: TCSPlatformBundle:Post:index
+
+
+tcs_platform_inscription_form:
+    path: /inscription
+    defaults:
+        _controller: TCSPlatformBundle:User:subscribe

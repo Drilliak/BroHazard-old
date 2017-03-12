@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Accueil!{% endblock %}</title>
+        <title>{% block title %}Accueil{% endblock %}</title>
 
         {% block stylesheets %}
             <link href="{{ asset('css/general/nav.css') }}" rel="stylesheet" />
@@ -12,12 +12,16 @@
     <body>
         <p><img src="{{ asset('img/logo.png') }}" alt="logo"/></p>
         <h1>{% block pageTitle %} {%  endblock %}</h1>
+        {% block connection %}
         <form id ="connexion" method="post", action="" >
             <p><input type="text" name="pseudo" placeholder="Pseudo" /></p>
             <p><input type="password" name="password" /></p>
         </form>
+        {% endblock %}
 
         {{ include("::nav.html.twig") }}
+
+        {% block body %} {% endblock %}
 
 
         <footer>

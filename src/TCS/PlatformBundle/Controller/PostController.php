@@ -11,18 +11,15 @@ namespace TCS\PlatformBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use TCS\PlatformBundle\Entity\Article;
 
 class PostController extends Controller
 {
     public function indexAction(){
 
-        $post1 = "coucou";
-        $post2 = "les";
-        $post3 = "copains";
-        return $this->render('TCSPlatformBundle:Post:index.html.twig', array(
-            'post1' =>$post1,
-            'post2' => $post2,
-            'post3' => $post3
-        ));
+        $posts = $this->getDoctrine()->getManager()->getRepository('TCSPlatformBundle:Article')->findAll();
+
+
+        return $this->render('TCSPlatformBundle:Post:index.html.twig', array('posts' => $posts ));
     }
 }
