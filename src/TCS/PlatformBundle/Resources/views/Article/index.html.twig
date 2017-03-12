@@ -1,0 +1,15 @@
+{%  extends "TCSPlatformBundle::layout.html.twig" %}
+
+{% block pageTitle %}BroHazard{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+
+{% block body %}
+    {% for article in articles %}
+        <p> {{ article.content }} </p>
+        <p> {{ article.creationDate|date("m/d/Y") }}</p>
+    {% endfor %}
+{% endblock %}

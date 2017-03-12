@@ -5,3 +5,4 @@ tcs_platform:
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+

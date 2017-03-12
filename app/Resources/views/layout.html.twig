@@ -12,14 +12,10 @@
     <body>
         <p><img src="{{ asset('img/logo.png') }}" alt="logo"/></p>
         <h1>{% block pageTitle %} {%  endblock %}</h1>
-        {% block connection %}
-        <form id ="connexion" method="post", action="" >
-            <p><input type="text" name="pseudo" placeholder="Pseudo" /></p>
-            <p><input type="password" name="password" /></p>
-        </form>
-        {% endblock %}
 
+        {% block nav %}
         {{ include("::nav.html.twig") }}
+        {% endblock %}
 
         {% block body %} {% endblock %}
 

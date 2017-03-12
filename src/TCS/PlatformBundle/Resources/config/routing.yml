@@ -1,10 +1,9 @@
 tcs_platform_homepage:
     path:     /accueil
     defaults:
-        _controller: TCSPlatformBundle:Post:index
+        _controller: TCSPlatformBundle:Article:index
 
-
-tcs_platform_inscription_form:
-    path: /inscription
+tcs_platform_add:
+    path: /ajouter-article
     defaults:
-        _controller: TCSPlatformBundle:User:subscribe
+        _controller: TCSPlatformBundle:Article:add
