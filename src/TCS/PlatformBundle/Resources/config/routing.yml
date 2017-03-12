@@ -1,0 +1,3 @@
+tcs_platform_homepage:
+    path:     /
+    defaults: { _controller: TCSPlatformBundle:Default:index }

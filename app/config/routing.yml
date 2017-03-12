@@ -1,0 +1,7 @@
+tcs_platform:
+    resource: "@TCSPlatformBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
