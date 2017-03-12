@@ -2,12 +2,27 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}Accueil!{% endblock %}</title>
+
+        {% block stylesheets %}
+            <link href="{{ asset('css/general/nav.css') }}" rel="stylesheet" />
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <p><img src="{{ asset('img/logo.png') }}" alt="logo"/></p>
+        <h1>{% block pageTitle %} {%  endblock %}</h1>
+        <form id ="connexion" method="post", action="" >
+            <p><input type="text" name="pseudo" placeholder="Pseudo" /></p>
+            <p><input type="password" name="password" /></p>
+        </form>
+
+        {{ include("::nav.html.twig") }}
+
+
+        <footer>
+            <p>Copyright 2017 tous droits réservés<p>
+            <p><a href = "">Nous contacter</a></p>
+        </footer>
     </body>
 </html>

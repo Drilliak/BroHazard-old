@@ -1,3 +1,4 @@
 tcs_platform_homepage:
-    path:     /
-    defaults: { _controller: TCSPlatformBundle:Default:index }
+    path:     /accueil
+    defaults:
+        _controller: TCSPlatformBundle:Post:index
