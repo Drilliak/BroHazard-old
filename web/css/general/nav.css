@@ -1,11 +1,79 @@
-ul{
-    list-style:none;
+#menu, #menu ul /* Liste */
+{
+  padding : 0; /* pas de marge intérieure */
+  margin : 0; /* ni extérieure */
+  list-style : none; /* on supprime le style par défaut de la liste */
+  line-height : 21px; /* on définit une hauteur pour chaque élément */
+  text-align : center; /* on centre le texte qui se trouve dans la liste */
 }
 
-li{
-    display:inline;
+#menu /* Ensemble du menu */
+{
+  font-weight : bold; /* on met le texte en gras */
+  font-family : Arial; /* on utilise Arial, c'est plus beau ^^ */
+  font-size : 12px; /* hauteur du texte : 12 pixels */
 }
 
-li:hover{
-    color:blue;
+#menu a /* Contenu des listes */
+{
+  display : block; /* on change le type d'élément, les liens deviennent des balises de type block */
+  padding : 0; /* aucune marge intérieure */
+  background: #e00341;
+  background-image: -webkit-linear-gradient(top, #e00341, #8c001c);
+  background-image: -moz-linear-gradient(top, #e00341, #8c001c);
+  background-image: -ms-linear-gradient(top, #e00341, #8c001c);
+  background-image: -o-linear-gradient(top, #e00341, #8c001c);
+  background-image: linear-gradient(to bottom, #e00341, #8c001c);
+  -webkit-border-radius: 7;
+  -moz-border-radius: 7;
+  border-radius: 7px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 25px 10px 25px;
+  text-decoration: none;
+}
+
+#menu li /* Elements des listes */
+{
+  float : left;
+  /* pour IE qui ne reconnaît pas "transparent" */
+  border-right : 1px solid #fff; /* on met une bordure blanche à droite de chaque élément */
+}
+
+#menu li ul /* Sous-listes */
+{
+  position: absolute; /* Position absolue */
+  width: 144px; /* Largeur des sous-listes */
+  left: -999em; /* Hop, on envoie loin du champ de vision */
+}
+
+#menu li ul li /* Éléments de sous-listes */
+{
+  /* pour IE qui ne reconnaît pas "transparent" (comme précédemment) */
+  border-top : 1px solid #fff; /* on met une bordure blanche en haut de chaque élément d'une sous liste */
+}
+
+#menu li ul ul
+{
+  margin    : -22px 0 0 144px ; /* On décale les sous-sous-listes pour qu'elles ne soient pas au dessus des sous-listes */
+  /* pour IE qui ne reconnaît pas "transparent" (comme précédemment) */
+  border-left     : 1px solid #fff ; /* Petite bordure à gauche pour ne pas coller ... */
+}
+
+#menu a:hover /* Lorsque la souris passe sur un des liens */
+{
+  background: #f51844;
+  background-image: -webkit-linear-gradient(top, #f51844, #eb0c39);
+  background-image: -moz-linear-gradient(top, #f51844, #eb0c39);
+  background-image: -ms-linear-gradient(top, #f51844, #eb0c39);
+  background-image: -o-linear-gradient(top, #f51844, #eb0c39);
+  background-image: linear-gradient(to bottom, #f51844, #eb0c39);
+  text-decoration: none;
+}
+
+#menu li:hover ul, #menu li li:hover ul, #menu li.sfhover ul, #menu li li.sfhover ul  /* Sous-listes lorsque la souris passe sur un élément de liste ET sous-sous-lites lorsque la souris passe sur un élément de sous-liste */
+{
+  left: auto; /* Repositionnement normal */
+  min-height: 0; /* Corrige un bug sous IE */
 }
