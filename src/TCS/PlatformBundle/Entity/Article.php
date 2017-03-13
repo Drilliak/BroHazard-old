@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Post
  *
  * @ORM\Table(name="article")
- * @ORM\Entity(repositoryClass="TCS\PlatformBundle\Repository\PostRepository")
+ * @ORM\Entity(repositoryClass="TCS\PlatformBundle\Repository\ArticleRepository")
  */
 class Article
 {
