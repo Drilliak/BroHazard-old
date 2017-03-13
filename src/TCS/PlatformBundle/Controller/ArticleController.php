@@ -25,6 +25,7 @@ class ArticleController extends Controller
         // Création du repository permettant l'intéraction avec l'entité Article
         $repository = $this->getDoctrine()->getManager()->getRepository('TCSPlatformBundle:Article');
 
+        $articles = $repository->findAll();
 
 
         return $this->render('TCSPlatformBundle:Article:index.html.twig', array('articles' => $articles ));
