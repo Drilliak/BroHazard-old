@@ -1,7 +1,7 @@
 tcs_platform_homepage:
     path:     /accueil
     defaults:
-        _controller: TCSPlatformBundle:Article:index
+        _controller: TCSPlatformBundle:Article:getLastArticle
 
 tcs_platform_add:
     path: /ajouter-article

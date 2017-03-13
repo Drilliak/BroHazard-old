@@ -7,5 +7,39 @@
 {% endblock %}
 
 {%  block body %}
-    {{ form(form) }}
+    <h3>Ajout d'articles</h3>
+
+    <div id="add_article_form">
+        {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+        {# Les erreurs générales du formulaire #}
+        {{ form_errors(form) }}
+
+        <div>
+            {{ form_label(form.title, "Titre de l'article") }}
+
+            {{ form_errors(form.title) }}
+
+            <div>
+                {{ form_widget(form.title) }}
+            </div>
+        </div>
+
+        <div>
+            {{ form_label(form.content, 'Contenu de l\'article') }}
+
+            {{ form_errors(form.content) }}
+
+            <div>
+                {{ form_widget(form.content) }}
+            </div>
+        </div>
+
+        {{ form_row(form.submit, {'label': 'Soumettre' }) }}
+
+        {{ form_end(form) }}
+
+
+
+    </div>
 {% endblock %}

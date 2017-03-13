@@ -20,7 +20,7 @@ class ArticleType extends AbstractType
         $builder
             ->add('title', TextType::class)
             ->add('content', TextareaType::class)
-            ->add('Soumettre', SubmitType::class);
+            ->add('submit', SubmitType::class);
     }
     
     /**

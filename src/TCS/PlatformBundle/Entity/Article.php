@@ -3,6 +3,7 @@
 namespace TCS\PlatformBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Post
@@ -23,7 +24,7 @@ class Article
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank(message = "Veuillez saisir un titre pour votre article")
      * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;
@@ -31,31 +32,26 @@ class Article
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank(message = "Veuillez saisir votre article")
      * @ORM\Column(name="content", type="text")
      */
     private $content;
 
     /**
      * @var \DateTime
-     *
+     * @Assert\DateTime()
      * @ORM\Column(name="creationDate", type="datetime")
      */
     private $creationDate;
 
     /**
      * @var \DateTime
-     *
+     * @Assert\DateTime()
      * @ORM\Column(name="updateDate", type="datetime")
      */
     private $updateDate;
 
 
-
-    public function __construct(){
-        $this->creationDate = new \DateTime();
-        $this->updateDate = new \DateTime();
-    }
     /**
      * Get id
      *
