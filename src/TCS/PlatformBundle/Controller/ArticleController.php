@@ -20,7 +20,7 @@ class ArticleController extends Controller
     /*
      * Récupère les derniers articles en date
      */
-    public function getLastArticleAction(){
+    public function lastArticlesAction(){
 
         // Création du repository permettant l'intéraction avec l'entité Article
         $repository = $this->getDoctrine()->getManager()->getRepository('TCSPlatformBundle:Article');
@@ -28,7 +28,7 @@ class ArticleController extends Controller
         $articles = $repository->findLastArticle(5);
 
 
-        return $this->render('TCSPlatformBundle:Article:index.html.twig', array('articles' => $articles ));
+        return $this->render('TCSPlatformBundle:Article:lastArticles.html.twig', array('articles' => $articles ));
     }
 
     /*

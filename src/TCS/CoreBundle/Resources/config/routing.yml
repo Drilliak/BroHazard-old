@@ -1,0 +1,5 @@
+tcs_platform_homepage:
+    path:     /accueil
+    defaults:
+        _controller: TCSCoreBundle:Core:index
+

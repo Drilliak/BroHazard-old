@@ -1,3 +1,7 @@
+tcs_core:
+    resource: "@TCSCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
 tcs_platform:
     resource: "@TCSPlatformBundle/Resources/config/routing.yml"
     prefix:   /

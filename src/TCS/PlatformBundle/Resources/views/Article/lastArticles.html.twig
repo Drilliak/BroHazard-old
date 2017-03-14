@@ -1,0 +1,12 @@
+
+{# Affichage des derniers articles en date #}
+
+<ul>
+    {% for article in articles %}
+    <li>
+        {{ article.title }}
+        {{ article.content }}
+    </li>
+    {% endfor %}
+
+</ul>

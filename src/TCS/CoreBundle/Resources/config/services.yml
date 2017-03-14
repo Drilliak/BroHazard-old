@@ -1,0 +1,4 @@
+services:
+#    tcs_core.example:
+#        class: TCS\CoreBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
