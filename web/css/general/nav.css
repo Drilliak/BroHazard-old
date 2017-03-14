@@ -1,3 +1,13 @@
+@font-face {
+  font-family: 'KeepCalm';
+  src: url('KeepCalm-Medium.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'BigNoodle';
+  src: url('big_noodle_titling.ttf') format('truetype')
+}
+
 body
 {
   margin: 0;
@@ -16,6 +26,7 @@ header
   background-color: #C82829;
   display: flex;
   align-items: flex-end;
+  font-family: 'BigNoodle';
   width: 100%;
   margin: 0;
   padding: 0;
@@ -26,6 +37,11 @@ header
   height: 80px;
   margin-top: 0px;
   margin-left: 0px;
+}
+
+h1
+{
+  font-family:'KeepCalm';
 }
 
 .nav_menu
