@@ -52,6 +52,7 @@ class ArticleController extends Controller
             // date actuelle.
             $article->setCreationDate(new \DateTime());
             $article->setUpdateDate(new \DateTime());
+            $article->setCategory(array("autre"));
 
             // Si le formulaire est valide
             if ($form->isValid()){

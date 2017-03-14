@@ -13,6 +13,14 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Article
 {
+
+    const ALLOWED_CATEGORIES = array(
+        "E-Sport",
+        "Insolite",
+        "Jeux vidéo",
+        "Équipe",
+        "Autres",
+    );
     /**
      * @var int
      *
@@ -50,6 +58,14 @@ class Article
      * @ORM\Column(name="updateDate", type="datetime")
      */
     private $updateDate;
+
+
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="category", type ="array")
+     */
+    private $category;
 
 
     /**
@@ -157,5 +173,15 @@ class Article
     public function getUpdateDate()
     {
         return $this->updateDate;
+    }
+
+    public function getCategory(){
+        return $this->category;
+    }
+
+    public function setCategory($category){
+        if (in_array($category, self::ALLOWED_CATEGORIES)){
+            $this->category = $category;
+        }
     }
 }
