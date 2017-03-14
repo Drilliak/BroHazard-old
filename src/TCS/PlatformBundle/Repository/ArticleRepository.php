@@ -20,7 +20,8 @@ class ArticleRepository extends EntityRepository
      * @return array
      */
     public function findLastArticle($nbArticles){
-        $query = $this->_em->createQuery("SELECT a FROM TCSPlatformBundle:Article a ORDER BY a.creationDate DESC");
+        $query = $this->_em->createQuery("SELECT a FROM TCSPlatformBundle:Article a ORDER BY a.creationDate DESC")
+        ->setMaxResults($nbArticles);
 
         return $query->getResult();
     }

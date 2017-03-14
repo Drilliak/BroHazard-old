@@ -3,3 +3,8 @@ tcs_platform_homepage:
     defaults:
         _controller: TCSCoreBundle:Core:index
 
+tcs_stream:
+    path: /stream/{streamer}
+    defaults:
+        _controller: TCSCoreBundle:Core:stream
+

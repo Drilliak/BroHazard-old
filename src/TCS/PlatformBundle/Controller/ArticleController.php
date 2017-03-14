@@ -17,6 +17,10 @@ use TCS\PlatformBundle\Form\ArticleType;
 
 class ArticleController extends Controller
 {
+    /**
+     * Nombre des derniers articles en date à afficher
+     */
+    const NB_LAST_ARTICLES = 5;
     /*
      * Récupère les derniers articles en date
      */
@@ -25,7 +29,7 @@ class ArticleController extends Controller
         // Création du repository permettant l'intéraction avec l'entité Article
         $repository = $this->getDoctrine()->getManager()->getRepository('TCSPlatformBundle:Article');
 
-        $articles = $repository->findLastArticle(5);
+        $articles = $repository->findLastArticle(self::NB_LAST_ARTICLES);
 
 
         return $this->render('TCSPlatformBundle:Article:lastArticles.html.twig', array('articles' => $articles ));

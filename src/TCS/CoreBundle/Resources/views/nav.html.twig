@@ -3,26 +3,27 @@
 <header>
     <div id="logo">
         <img src="{{ asset('img/logo.png') }}" alt="logo"/>
-        <h1>{% block pageTitle %} {%  endblock %}</h1>
+        <h1>BroHazard</h1>
     </div>
 
     <nav>
         <ul class="nav_menu" id="main_menu">
             <li>
-                <a href="#">Accueil</a>
+                <a href="{{ path('tcs_platform_homepage') }}">Accueil</a>
             </li>
             <li>
                 <a href="#">Streams</a>
                 <ul class="dropdown_menu">
-                    <li><a href="#">Rolesafe</a></li>
-                    <li><a href="#">Drilliak</a></li>
+                    <li><a href="{{ path('tcs_stream', {'streamer' : 'Drilliak'}) }}">Drilliak</a></li>
+                    <li><a href="{{ path('tcs_stream', {'streamer' : 'Rolesafe'}) }}">Rolesafe</a></li>
+                    <li><a href="{{ path('tcs_stream', {'streamer' : 'Nekaator'}) }}">Nekaator</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#">Articles</a>
             </li>
             <li>
-                <a href="#">A propos</a>
+                <a href="#">À propos</a>
             </li>
         </ul>
     </nav>
