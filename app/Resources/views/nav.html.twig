@@ -1,20 +1,27 @@
-<nav>
-    <ul id="menu">
-        <li>
-            <a href="#">Accueil</a>
-        </li>
-        <li>
-            <a href="#">Streams</a>
-            <ul>
-                <li><a href="#">Rolesafe</a></li>
-                <li><a href="#">Drilliak</a></li>
-            </ul>
-        </li>
-        <li>
-            <a href="#">Articles</a>
-        </li>
-        <li>
-            <a href="#">A propos</a>
-        </li>
-    </ul>
-</nav>
+<header>
+    <div id="logo">
+        <img src="{{ asset('img/logo.png') }}" alt="logo"/>
+        <h1>{% block pageTitle %} {%  endblock %}</h1>
+    </div>
+
+    <nav>
+        <ul class="nav_menu" id="main_menu">
+            <li>
+                <a href="#">Accueil</a>
+            </li>
+            <li>
+                <a href="#">Streams</a>
+                <ul class="dropdown_menu">
+                    <li><a href="#">Rolesafe</a></li>
+                    <li><a href="#">Drilliak</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Articles</a>
+            </li>
+            <li>
+                <a href="#">A propos</a>
+            </li>
+        </ul>
+    </nav>
+</header>

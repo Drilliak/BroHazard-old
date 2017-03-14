@@ -10,18 +10,18 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        <p><img src="{{ asset('img/logo.png') }}" alt="logo"/></p>
-        <h1>{% block pageTitle %} {%  endblock %}</h1>
+        <div id="bloc_page">
 
-        {% block nav %}
-        {{ include("::nav.html.twig") }}
-        {% endblock %}
+            {% block header %}
+            {{ include("::nav.html.twig") }}
+            {% endblock %}
 
-        {% block body %} {% endblock %}
+            {% block body %} {% endblock %}
 
-        <footer>
-            <p>Copyright 2017 tous droits réservés<p>
-            <p><a href = "">Nous contacter</a></p>
-        </footer>
+            <footer>
+                <p>Copyright 2017 tous droits réservés<p>
+                <p><a href = "">Nous contacter</a></p>
+            </footer>
+        </div>
     </body>
 </html>
