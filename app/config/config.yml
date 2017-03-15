@@ -3,15 +3,16 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: "@TCSCoreBundle/Resources/config/services.yml" }
+    - { resource: "@TCSUserBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: fr
 
 framework:
     #esi: ~
-    #translator: { fallbacks: ['%locale%'] }
+    translator: { fallbacks: ['%locale%'] }
     secret: '%secret%'
     router:
         resource: '%kernel.root_dir%/config/routing.yml'
@@ -71,3 +72,13 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+
+# Configuration du bundle FrienOfSymfony
+fos_user:
+    db_driver: orm # Type de BDD (ORM Dorctrine)
+    firewall_name: main #Pare feu à utiliser
+    user_class: TCS\UserBundle\Entity\User # Classe utilisée pour représenter les utilisateurs
+    from_email:
+        address: you@example.com
+        sender_name: you
+
