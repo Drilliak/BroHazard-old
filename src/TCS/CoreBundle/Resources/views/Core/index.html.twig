@@ -3,7 +3,9 @@
 {%  extends "TCSCoreBundle::layout.html.twig" %}
 
 {% block body %}
-    <h3> Derniers articles en date </h3>
+    <div id="affiche_article">
+        <h3> Derniers articles en date </h3>
 
-    {{ render(controller("TCSPlatformBundle:Article:lastArticles")) }}
+        {{ render(controller("TCSPlatformBundle:Article:lastArticles")) }}
+    </div>
 {% endblock %}

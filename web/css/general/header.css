@@ -23,35 +23,51 @@ body
 
 header
 {
-  background-color: #C82829;
+  background-image: -webkit-linear-gradient(top, #C82829, #880000);
+  background-image: -moz-linear-gradient(top, #C82829, #880000);
+  background-image: -ms-linear-gradient(top,#C82829, #880000);
+  background-image: -o-linear-gradient(top, #C82829, #880000);
+  background-image: linear-gradient(to bottom, #C82829, #880000);
   display: flex;
   align-items: flex-end;
   font-family: 'BigNoodle';
   width: 100%;
   margin: 0;
   padding: 0;
+  border-bottom: 4px solid black;
 }
 
 #logo
 {
-  height: 80px;
-  margin-top: 0px;
-  margin-left: 0px;
+  height: 70px;
+  margin: 0;
+  display: flex;
+}
+
+#img_logo
+{
+  height:60px;
+  margin:5px;
 }
 
 h1
 {
   font-family:'KeepCalm';
+  margin-top: 10px;
+  padding-top: 0;
 }
 
 .nav_menu
 {
   padding: 0;
   margin: 0;
+  margin-left: 100px;
   list-style-type: none; /*pas de points*/
   display: flex;
   text-align: left;
   font-weight : bold;
+  justify-content: space-around;
+  width:100%;
 }
 
 .nav_menu a
@@ -60,7 +76,6 @@ h1
   color: #F9F9F9;
   padding-bottom: 3px;
   text-decoration: none;
-  width: 100px;
 }
 
 .nav_menu a:hover
@@ -81,7 +96,7 @@ h1
 
 .dropdown_menu
 {
-  background-color: #C82829;
+  background-color: #880000;
   font-size: 0.7em;
   font-weight : normal;
   list-style-type: none;
