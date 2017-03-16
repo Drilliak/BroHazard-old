@@ -2,3 +2,7 @@ tcs_platform_add:
     path: /ajouter-article
     defaults:
         _controller: TCSPlatformBundle:Article:add
+
+tcs_platform_articles_display:
+    path: /articles-diplay?sort={sort}
+        _controller: TCSPlatformBundle:Article:display

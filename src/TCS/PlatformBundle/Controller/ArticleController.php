@@ -75,5 +75,9 @@ class ArticleController extends Controller
         return $this->render('TCSPlatformBundle:Article:add.html.twig', array(
             'form' =>$form->createView(),
         ));
-    }
+
+
+        public funciton displayAction(){
+        }
+}
 }

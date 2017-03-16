@@ -4,8 +4,8 @@ security:
         TCS\UserBundle\Entity\User: sha512
 
     role_hierarchy:
-        ROLE_ADMIN: ROLE_USER
-        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+        ROLE_ADMIN: ROLE_AUTHOR
+        ROLE_AUTHOR: ROLE_USER
     providers:
         main:
             id: fos_user.user_provider.username

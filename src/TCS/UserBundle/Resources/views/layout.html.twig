@@ -1,6 +1,7 @@
 
 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
     <p>Connecté en tant que {{ app.user.username }} </p>
+    <a href = "{{ path('tcs_user_parameters', {'user' :app.user.username }) }}">Administration</a>
     <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
 
 {% else %}
@@ -12,6 +13,7 @@
           </div>
       {% endfor %}
   {% endfor %}
+    <a href ="">S'inscrire</a>
 
   {% block fos_user_content %}
   {% endblock fos_user_content %}

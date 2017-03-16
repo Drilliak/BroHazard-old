@@ -1,9 +1,9 @@
-tcs_platform_homepage:
+tcs_core_homepage:
     path:     /accueil
     defaults:
         _controller: TCSCoreBundle:Core:index
 
-tcs_stream:
+tcs_core_stream:
     path: /stream/{streamer}
     defaults:
         _controller: TCSCoreBundle:Core:stream

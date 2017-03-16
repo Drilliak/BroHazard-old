@@ -62,4 +62,5 @@ class CoreController extends Controller
         throw new NotFoundHttpException('Page inexistante');
 
     }
+
 }
