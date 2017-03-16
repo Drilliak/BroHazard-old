@@ -192,28 +192,4 @@ class Article
             $this->category = $category;
         }
     }
-
-    /**
-     * Set author
-     *
-     * @param \TCS\UserBundle\Entity\User $author
-     *
-     * @return Article
-     */
-    public function setAuthor(\TCS\UserBundle\Entity\User $author)
-    {
-        $this->author = $author;
-
-        return $this;
-    }
-
-    /**
-     * Get author
-     *
-     * @return \TCS\UserBundle\Entity\User
-     */
-    public function getAuthor()
-    {
-        return $this->author;
-    }
 }

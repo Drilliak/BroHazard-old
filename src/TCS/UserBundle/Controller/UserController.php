@@ -16,4 +16,9 @@ class UserController extends Controller
     public function parametersAction(){
         return $this->render('TCSUserBundle:User:parameters.html.twig');
     }
+
+    public function confirmedAction(){
+        return $this->redirectToRoute('TCSCoreBundle:Core:index.html.twig');
+    }
 }
+

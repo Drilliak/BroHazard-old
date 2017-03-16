@@ -2,3 +2,10 @@ tcs_user_parameters:
     path: /{user}/parametres
     defaults:
         _controller: TCSCoreBundle:User:parameters
+
+fos_user_registration_confirmed:
+    path: /register/confirmed
+    defaults:
+        _controller: TCSCoreBundle:User:confirmed
+    requirements:
+        _method: GET

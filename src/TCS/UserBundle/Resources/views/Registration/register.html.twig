@@ -1,0 +1,8 @@
+{% extends "TCSCoreBundle::layout.html.twig" %}
+
+{% block body %}
+    <form class="fos_user_registration_register" action="{{ path('fos_user_registration_register') }}" method="POST">{{ form_widget(form) }}
+        <div><input type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" /></div>
+    </form>
+
+{% endblock %}

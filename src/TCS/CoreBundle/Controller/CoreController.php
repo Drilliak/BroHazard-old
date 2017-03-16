@@ -10,7 +10,7 @@ namespace TCS\CoreBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-
+use Symfony\Component\HttpFoundation\Request;
 
 class CoreController extends Controller
 {
@@ -61,6 +61,27 @@ class CoreController extends Controller
         }
         throw new NotFoundHttpException('Page inexistante');
 
+    }
+
+
+    public function articleAction(Request $request, $nbArticles = 10){
+        $allowed_sorted = array('activity', 'author');
+
+        $sort = "activity";
+
+        if (in_array($request->query->get("sort"), $allowed_sorted)){
+            $sort = ($request->query->get("sort"));
+        }
+
+
+        if ($sort == "activity"){
+            $repository = $this->getDoctrine()->getManager()->getRepository('TCSPlatformBundle:Article');
+
+            $articles = $repository->findLastArticle($nbArticles);
+
+
+            return $this->render('TCSCoreBundle:Core:articles.html.twig', array('articles' => $articles));
+        }
     }
 
 }

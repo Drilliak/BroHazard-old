@@ -8,3 +8,7 @@ tcs_core_stream:
     defaults:
         _controller: TCSCoreBundle:Core:stream
 
+tcs_core_articles:
+    path: /articles
+    defaults:
+        _controller: TCSCoreBundle:Core:article

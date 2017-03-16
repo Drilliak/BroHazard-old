@@ -22,20 +22,6 @@ class ArticleController extends Controller
      */
     const NB_LAST_ARTICLES = 5;
 
-    /*
-     * Récupère les derniers articles en date
-     */
-    public function lastArticlesAction()
-    {
-
-        // Création du repository permettant l'intéraction avec l'entité Article
-        $repository = $this->getDoctrine()->getManager()->getRepository('TCSPlatformBundle:Article');
-
-        $articles = $repository->findLastArticle(self::NB_LAST_ARTICLES);
-
-
-        return $this->render('TCSPlatformBundle:Article:lastArticles.html.twig', array('articles' => $articles));
-    }
 
     /*
      * Méthode destinée à ajouter un article dans la BDD
@@ -80,6 +66,24 @@ class ArticleController extends Controller
         ));
 
 
+    }
+
+    /**
+     * Affiche les articles.
+     *
+     * @param $sort
+     * @param $nbArticles nombre d'article à afficher
+     * @return Response
+     */
+    public function displayAction($sort, $nbArticles){
+        if ($sort == "activity"){
+            $repository = $this->getDoctrine()->getManager()->getRepository('TCSPlatformBundle:Article');
+
+            $articles = $repository->findLastArticle($nbArticles);
+
+
+            return $this->render('TCSPlatformBundle:Article:lastArticles.html.twig', array('articles' => $articles));
+        }
     }
 
 }

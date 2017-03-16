@@ -1,0 +1,14 @@
+{%  extends "TCSCoreBundle::layout.html.twig" %}
+
+{% block body %}
+
+    <ul>
+        {% for article in articles %}
+            <li>
+                {{ article.title }}
+                {{ article.content }}
+            </li>
+        {% endfor %}
+
+    </ul>
+{% endblock %}
