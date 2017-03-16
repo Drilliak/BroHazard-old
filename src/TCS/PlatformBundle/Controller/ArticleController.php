@@ -21,10 +21,12 @@ class ArticleController extends Controller
      * Nombre des derniers articles en date à afficher
      */
     const NB_LAST_ARTICLES = 5;
+
     /*
      * Récupère les derniers articles en date
      */
-    public function lastArticlesAction(){
+    public function lastArticlesAction()
+    {
 
         // Création du repository permettant l'intéraction avec l'entité Article
         $repository = $this->getDoctrine()->getManager()->getRepository('TCSPlatformBundle:Article');
@@ -32,18 +34,19 @@ class ArticleController extends Controller
         $articles = $repository->findLastArticle(self::NB_LAST_ARTICLES);
 
 
-        return $this->render('TCSPlatformBundle:Article:lastArticles.html.twig', array('articles' => $articles ));
+        return $this->render('TCSPlatformBundle:Article:lastArticles.html.twig', array('articles' => $articles));
     }
 
     /*
      * Méthode destinée à ajouter un article dans la BDD
      */
-    public function addAction(Request $request){
+    public function addAction(Request $request)
+    {
         $article = new Article();
         $form = $this->get('form.factory')->create(ArticleType::class, $article);
 
 
-        if ($request->isMethod('POST')){
+        if ($request->isMethod('POST')) {
 
             // On stocke les valeur du formulaire dans $article
             $form->handleRequest($request);
@@ -55,7 +58,7 @@ class ArticleController extends Controller
             $article->setCategory(array("autre"));
 
             // Si le formulaire est valide
-            if ($form->isValid()){
+            if ($form->isValid()) {
 
                 // Enregistrement de l'article en BDD
                 $em = $this->getDoctrine()->getManager();
@@ -73,11 +76,10 @@ class ArticleController extends Controller
         // Si le visiteur vient d'arriver sur la page au-travers d'une requête GET ou si le formulaire contient des
         // valeurs invalides, on l'affiche à nouveau
         return $this->render('TCSPlatformBundle:Article:add.html.twig', array(
-            'form' =>$form->createView(),
+            'form' => $form->createView(),
         ));
 
 
-        public funciton displayAction(){
-        }
-}
+    }
+
 }
