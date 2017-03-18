@@ -1,5 +1,5 @@
 tcs_platform_add:
     path: /ajouter-article
     defaults:
-        _controller: TCSPlatformBundle:Article:add
+        _controller: TCSPlatformBundle:Article:addArticle
 

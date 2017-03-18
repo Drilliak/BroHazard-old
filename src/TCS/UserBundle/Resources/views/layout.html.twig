@@ -4,6 +4,7 @@
     <a href = "{{ path('tcs_user_parameters', {'user' :app.user.username }) }}">Administration</a>
     <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
 
+
 {% else %}
 
     <form action="{{ path("fos_user_security_check") }}" method="post">

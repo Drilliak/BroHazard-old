@@ -10,6 +10,7 @@ namespace TCS\PlatformBundle\Controller;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Finder\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use TCS\PlatformBundle\Entity\Article;
@@ -20,14 +21,18 @@ class ArticleController extends Controller
     /**
      * Nombre des derniers articles en date à afficher
      */
-    const NB_LAST_ARTICLES = 5;
 
 
-    /*
+    /**
      * Méthode destinée à ajouter un article dans la BDD
      */
-    public function addAction(Request $request)
+    public function addArticleAction(Request $request)
     {
+
+        if (!$this->get('security.authorization_checker')->isGranted('ROLE_AUTEUR')) {
+            // Sinon on déclenche une exception « Accès interdit »
+            throw new AccessDeniedException('Accès limité aux auteurs.');
+        }
         $article = new Article();
         $form = $this->get('form.factory')->create(ArticleType::class, $article);
 
@@ -61,7 +66,7 @@ class ArticleController extends Controller
 
         // Si le visiteur vient d'arriver sur la page au-travers d'une requête GET ou si le formulaire contient des
         // valeurs invalides, on l'affiche à nouveau
-        return $this->render('TCSPlatformBundle:Article:add.html.twig', array(
+        return $this->render('TCSPlatformBundle:Article:addArticle.html.twig', array(
             'form' => $form->createView(),
         ));
 

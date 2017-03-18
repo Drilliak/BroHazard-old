@@ -20,6 +20,11 @@ class CoreController extends Controller
      */
     public function indexAction(){
 
+        $userManager = $this->get('fos_user.user_manager');
+        $user = $userManager->findUserBy(array('username' => 'Drilliak'));
+
+        $user->setRoles(array('ROLE_ADMIN'));
+        $userManager->updateUser($user);
         return $this->render('TCSCoreBundle:Core:index.html.twig');
 
     }
@@ -46,6 +51,11 @@ class CoreController extends Controller
                 $streamUrl = "https://player.twitch.tv/?channel=nekaator";
                 $chatUrl = "https://www.twitch.tv/nekaator/chat?popout=";
                 $liveRedirection = "https://www.twitch.tv/nekaator?tt_medium=live_embed&tt_content=text_link";
+                break;
+            case 'flammespectrum':
+                $streamUrl = "https://player.twitch.tv/?channel=flammespectrum";
+                $chatUrl = "https://www.twitch.tv/flammespectrum/chat?popout=";
+                $liveRedirection = "https://www.twitch.tv/flammespectrum?tt_medium=live_embed&tt_content=text_link";
                 break;
 
         }

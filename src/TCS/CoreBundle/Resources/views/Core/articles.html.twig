@@ -11,4 +11,7 @@
         {% endfor %}
 
     </ul>
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="">Ajouter un article</a>
+    {% endif %}
 {% endblock %}
