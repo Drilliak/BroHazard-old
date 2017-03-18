@@ -20,8 +20,8 @@ class CoreController extends Controller
      * La page d'accueil.
      */
     public function indexAction(){
-        
-        return $this->render('TCSCoreBundle:Core:index.html.twig', array('articles' => $articles));
+
+        return $this->render('TCSCoreBundle:Core:index.html.twig');
 
     }
 
