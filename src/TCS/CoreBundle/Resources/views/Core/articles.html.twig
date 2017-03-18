@@ -2,16 +2,29 @@
 
 {% block body %}
 
+    {# Critères de recherche #}
+    <label for="author">Choissisez votre auteur</label>
+    <select name="author" id=""author>
+        {% for author in authors %}
+            <option value="{{ author }}">{{ author }}</option>
+        {% endfor %}
+    </select>
+
+    {# Affichage des articels #}
     <ul>
         {% for article in articles %}
             <li>
                 {{ article.title }}
                 {{ article.content }}
+                {{ article.author }}
             </li>
         {% endfor %}
 
     </ul>
-    {% if is_granted('ROLE_ADMIN') %}
-        <a href="">Ajouter un article</a>
+
+
+    {# Si l'utilisateur a au moins le rôle auteur, on lui propose d'ajouter un article #}
+    {% if is_granted('ROLE_AUTHOR') %}
+        <a href="{{ path('tcs_platform_add') }}">Ajouter un article</a>
     {% endif %}
 {% endblock %}

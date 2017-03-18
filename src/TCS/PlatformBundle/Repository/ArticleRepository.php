@@ -25,4 +25,13 @@ class ArticleRepository extends EntityRepository
 
         return $query->getResult();
     }
+
+    public function findArticlesByAuthor($author, $nbArticles){
+        $query = $this->_em->createQuery("SELECT a FROM TCSPlatformBundle:Article a JOIN a.author u WHERE u.usernameCanonical = :author");
+        $query->setParameter('author', $author);
+        $query->setMaxResults($nbArticles);
+
+        return $query->getResult();
+    }
+
 }

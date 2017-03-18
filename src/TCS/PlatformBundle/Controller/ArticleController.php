@@ -29,7 +29,7 @@ class ArticleController extends Controller
     public function addArticleAction(Request $request)
     {
 
-        if (!$this->get('security.authorization_checker')->isGranted('ROLE_AUTEUR')) {
+        if (!$this->get('security.authorization_checker')->isGranted('ROLE_AUTHOR')) {
             // Sinon on déclenche une exception « Accès interdit »
             throw new AccessDeniedException('Accès limité aux auteurs.');
         }
@@ -47,6 +47,8 @@ class ArticleController extends Controller
             $article->setCreationDate(new \DateTime());
             $article->setUpdateDate(new \DateTime());
             $article->setCategory(array("autre"));
+            $author = $this->getUser();
+            $article->setAuthor($author);
 
             // Si le formulaire est valide
             if ($form->isValid()) {
@@ -58,7 +60,7 @@ class ArticleController extends Controller
 
                 $request->getSession()->getFlashBag()->add('notice', 'Votre article a bien été enregistré.');
 
-                return $this->redirectToRoute('tcs_platform_homepage');
+                return $this->redirectToRoute('tcs_core_articles', array('sort' => 'activity'));
 
             }
 
