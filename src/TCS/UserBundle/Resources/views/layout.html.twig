@@ -1,37 +1,43 @@
 
 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
     <p>Connecté en tant que {{ app.user.username }} </p>
-    <a href = "{{ path('tcs_user_parameters', {'user' :app.user.username }) }}">Administration</a>
+    <a href = "{{ path('tcs_user_parameters', {'user' :app.user.username }) }}">Profil</a>
     <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
 
 
 {% else %}
 
-    <form action="{{ path("fos_user_security_check") }}" method="post">
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+    <div id="connexion_form">
+        <form action="{{ path("fos_user_security_check") }}" method="post">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
-        <div id="connexion_bloc">
-            <div id="username_bloc">
-                <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
-                <input type="text" id="username" name="_username" value="{{ last_username }}" />
-            </div>
+            <div id="connexion_bloc">
+                <div id="username_bloc">
+                    <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
+                    <input type="text" id="username" name="_username" value="{{ last_username }}" />
+                </div>
 
-            <div id="password_bloc">
-                <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
-                <input type="password" id="password" name="_password" />
-            </div>
+                <div id="password_bloc">
+                    <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+                    <input type="password" id="password" name="_password" />
+                </div>
 
-            <div id="checkbox_bloc">
-                <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
-                <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                <div id="checkbox_submit_bloc">
+                    <div id="checkbox_bloc">
+                        <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+                        <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                    </div>
+
+                    <div id="submit_button">
+                        <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <div id="submit_button">
-            <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
-        </div>
-    </form>
-    <a href ="{{  path('fos_user_registration_register') }}">S'inscrire</a>
-
+        </form>
+    </div>
+    <div id="inscription_bloc">
+        <p>Pas encore inscrit(e) ?</p>
+        <a href ="{{  path('fos_user_registration_register') }}">S'inscrire</a>
+    </div>
 
 {% endif %}

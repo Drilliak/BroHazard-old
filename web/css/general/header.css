@@ -35,27 +35,27 @@ header
   margin: 0;
   padding: 0;
   border-bottom: 4px solid black;
-  height: 70px;
+  height: 80px;
 }
 
 /*Titre + logo*/
 #logo
 {
-  height: 70px;
+  height: 80px;
   margin: 0;
   display: flex;
 }
 
 #img_logo
 {
-  height:60px;
+  height:70px;
   margin:5px;
 }
 
 h1
 {
   font-family:'KeepCalm';
-  margin-top: 10px;
+  margin-top: 20px;
   padding-top: 0;
 }
 
@@ -125,21 +125,28 @@ h1
 /*identification / inscription*/
 #authenticate
 {
+  position: relative;
   display: flex;
-  flex-direction: row;
-  height: 70px;
+  left: 50px;
 }
 
-#connexion_bloc
+#connexion_form
 {
+  text-align: right;
   display: flex;
   flex-direction: column;
-  height: 70px;
-  justify-content: flex-start;
+  margin-bottom: 3px;
 }
 
-#submit_button
+#checkbox_submit_bloc
 {
-  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#inscription_bloc
+{
+  position: relative;
 }
 
