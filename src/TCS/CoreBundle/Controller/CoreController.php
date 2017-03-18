@@ -20,11 +20,7 @@ class CoreController extends Controller
      */
     public function indexAction(){
 
-        $userManager = $this->get('fos_user.user_manager');
-        $user = $userManager->findUserBy(array('username' => 'Drilliak'));
-
-        $user->setRoles(array('ROLE_ADMIN'));
-        $userManager->updateUser($user);
+       
         return $this->render('TCSCoreBundle:Core:index.html.twig');
 
     }
