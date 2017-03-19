@@ -1,7 +1,7 @@
 
 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
     <p>Connecté en tant que {{ app.user.username }} </p>
-    <a href = "{{ path('tcs_user_parameters', {'user' :app.user.username }) }}">Profil</a>
+    <a href = "{{ path('fos_user_profile_show') }}">Profil</a>
     <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
 
 

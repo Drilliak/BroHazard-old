@@ -19,11 +19,36 @@ class ArticleRepository extends EntityRepository
      * @param $nbArticles nombre d'articles à retourner.
      * @return array
      */
-    public function findLastArticle($nbArticles){
-        $query = $this->_em->createQuery("SELECT a FROM TCSPlatformBundle:Article a ORDER BY a.creationDate DESC")
-        ->setMaxResults($nbArticles);
+    public function findLastArticles($nbArticles, $author = null){
 
-        return $query->getResult();
+        if ($author == null){
+            $query = $this->_em->createQuery("SELECT a FROM TCSPlatformBundle:Article a ORDER BY a.creationDate DESC")
+                ->setMaxResults($nbArticles);
+
+            return $query->getResult();
+        } else {
+            $query = $this->_em->createQuery("SELECT a FROM TCSPlatformBundle:Article a JOIN a.author u WHERE u.usernameCanonical = :author ORDER BY a.creationDate DESC");
+            $query->setParameter('author', $author);
+            $query->setMaxResults($nbArticles);
+
+            return $query->getResult();
+        }
+
+    }
+
+    public function findFirstArticles($nbArticles, $author = null){
+        if ($author == null){
+            $query = $this->_em->createQuery("SELECT a FROM TCSPlatformBundle:Article a ORDER BY a.creationDate ASC")
+                ->setMaxResults($nbArticles);
+
+            return $query->getResult();
+        } else {
+            $query = $this->_em->createQuery("SELECT a FROM TCSPlatformBundle:Article a JOIN a.author u WHERE u.usernameCanonical = :author ORDER BY a.creationDate ASC");
+            $query->setParameter('author', $author);
+            $query->setMaxResults($nbArticles);
+
+            return $query->getResult();
+        }
     }
 
     public function findArticlesByAuthor($author, $nbArticles){

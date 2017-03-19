@@ -1,0 +1,10 @@
+{% extends "TCSCoreBundle::layout.html.twig" %}
+
+{% block body %}
+    <ul>
+        <li> Pseudo : {{ user.username }} </li>
+        <li>Email :{{ user.email }}</li>
+
+    </ul>
+    <a href="{{ path('fos_user_profile_edit') }}">Éditer le profil</a>
+{% endblock %}

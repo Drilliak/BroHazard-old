@@ -1,48 +1,33 @@
-{# A revoir #}
-
-
 {%  extends "TCSPlatformBundle::layout.html.twig" %}
 
-{% block title %}Ajout d'article{% endblock %}
+{% block script %}
+    <script src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            theme: 'modern',
+            width: 600,
+            height: 300,
+            plugins: [
+                'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
+                'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+                'save table contextmenu directionality emoticons template paste textcolor'
+            ],
+            content_css: 'css/content.css',
+            toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons'
+        });
 
-{% block stylesheets %}
-    {{ parent() }}
+    </script>
+
+    <style>
+
+    </style>
 {% endblock %}
 
-{%  block body %}
-    <h3>Ajout d'articles</h3>
+{% block body %}
+    <form method="post" action="">
+        <textarea></textarea>
+        <input type="submit" value="soumettre">
+    </form>
 
-    <div id="add_article_form">
-        {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
-
-        {# Les erreurs générales du formulaire #}
-        {{ form_errors(form) }}
-
-        <div>
-            {{ form_label(form.title, "Titre de l'article") }}
-
-            {{ form_errors(form.title) }}
-
-            <div>
-                {{ form_widget(form.title) }}
-            </div>
-        </div>
-
-        <div>
-            {{ form_label(form.content, 'Contenu de l\'article') }}
-
-            {{ form_errors(form.content) }}
-
-            <div>
-                {{ form_widget(form.content) }}
-            </div>
-        </div>
-
-        {{ form_row(form.submit, {'label': 'Soumettre' }) }}
-
-        {{ form_end(form) }}
-
-
-
-    </div>
 {% endblock %}

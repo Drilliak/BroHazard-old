@@ -76,12 +76,12 @@ class CoreController extends Controller
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function articleAction(Request $request, $nbArticles = 10){
-        $allowed_sorted = array('activity', 'author');
+        $allowedActivity = array("last-creation-date", "first-creation-date");
 
-        $sort = "activity";
+        $activity = "last-creation-date";
 
-        if (in_array($request->query->get("sort"), $allowed_sorted)){
-            $sort = ($request->query->get("sort"));
+        if (in_array($request->query->get("activity"), $allowedActivity)){
+            $activity = ($request->query->get("activity"));
         }
 
         // On récupère les auteurs
@@ -95,21 +95,23 @@ class CoreController extends Controller
         }
 
         //On récupère les articles
-        $articles = array();
-        if ($sort == "activity"){
-            $repository = $this->getDoctrine()->getManager()->getRepository('TCSPlatformBundle:Article');
-
-            $articles = $repository->findLastArticle($nbArticles);
+        $repository = $this->getDoctrine()->getManager()->getRepository('TCSPlatformBundle:Article');
+        $author = strtolower($request->query->get("author"));
+        if ($activity == "last-creation-date"){
+            if ($author !== ""){
+                $articles = $repository->findLastArticles($nbArticles, $author);
+            } else {
+                $articles = $repository->findLastArticles($nbArticles);
+            }
+        }
+        if($activity == "first-creation-date"){
+            if ($author !== ""){
+                $articles = $repository->findFirstArticles($nbArticles, $author);
+            } else {
+                $articles = $repository->findFirstArticles($nbArticles);
+            }
         }
 
-        if ($sort == "author"){
-            $author = strtolower($request->query->get("name"));
-
-            $repository = $this->getDoctrine()->getManager()->getRepository('TCSPlatformBundle:Article');
-
-            $articles = $repository->findArticlesByAuthor($author, $nbArticles);
-
-        }
 
         return $this->render('TCSCoreBundle:Core:articles.html.twig', array('articles' => $articles, 'authors' =>$authors));
     }

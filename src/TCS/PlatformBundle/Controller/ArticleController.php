@@ -82,11 +82,11 @@ class ArticleController extends Controller
      * @param $nbArticles nombre d'article à afficher
      * @return Response
      */
-    public function displayAction($sort, $nbArticles){
-        if ($sort == "activity"){
+    public function displayAction($activity, $nbArticles =5){
+        if ($activity == "last-creation-date"){
             $repository = $this->getDoctrine()->getManager()->getRepository('TCSPlatformBundle:Article');
 
-            $articles = $repository->findLastArticle($nbArticles);
+            $articles = $repository->findLastArticles($nbArticles);
 
 
             return $this->render('TCSPlatformBundle:Article:lastArticles.html.twig', array('articles' => $articles));

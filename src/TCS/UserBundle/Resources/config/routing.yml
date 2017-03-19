@@ -1,8 +1,3 @@
-tcs_user_parameters:
-    path: /{user}/parametres
-    defaults:
-        _controller: TCSCoreBundle:User:parameters
-
 fos_user_registration:
     path: /register/
     defaults:

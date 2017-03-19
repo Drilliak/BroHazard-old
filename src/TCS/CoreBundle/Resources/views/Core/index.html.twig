@@ -6,7 +6,7 @@
     <div id="affiche_article">
         <h3> Derniers articles en date </h3>
 
-        {{ render(controller("TCSPlatformBundle:Article:display", {'sort' :'activity', 'nbArticles': 5})) }}
+        {{ render(controller("TCSPlatformBundle:Article:display", {'activity': 'last-creation-date'})) }}
     </div>
-    
+
 {% endblock %}
