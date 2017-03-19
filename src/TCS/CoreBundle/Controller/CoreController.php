@@ -70,50 +70,5 @@ class CoreController extends Controller
     }
 
 
-    /**
-     * @param Request $request
-     * @param int $nbArticles
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function articleAction(Request $request, $nbArticles = 10){
-        $allowedActivity = array("last-creation-date", "first-creation-date");
-
-        $activity = "last-creation-date";
-
-        if (in_array($request->query->get("activity"), $allowedActivity)){
-            $activity = ($request->query->get("activity"));
-        }
-
-        // On récupère les auteurs
-        $repository = $this->getDoctrine()->getManager()->getRepository('TCSUserBundle:User');
-        $users = $repository->findAll();
-        $authors = array();
-        foreach($users as $user){
-            if ($user->hasRole('ROLE_AUTHOR') || $user->hasRole('ROLE_ADMIN')){
-                $authors[] = $user;
-            }
-        }
-
-        //On récupère les articles
-        $repository = $this->getDoctrine()->getManager()->getRepository('TCSPlatformBundle:Article');
-        $author = strtolower($request->query->get("author"));
-        if ($activity == "last-creation-date"){
-            if ($author !== ""){
-                $articles = $repository->findLastArticles($nbArticles, $author);
-            } else {
-                $articles = $repository->findLastArticles($nbArticles);
-            }
-        }
-        if($activity == "first-creation-date"){
-            if ($author !== ""){
-                $articles = $repository->findFirstArticles($nbArticles, $author);
-            } else {
-                $articles = $repository->findFirstArticles($nbArticles);
-            }
-        }
-
-
-        return $this->render('TCSCoreBundle:Core:articles.html.twig', array('articles' => $articles, 'authors' =>$authors));
-    }
 
 }

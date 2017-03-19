@@ -3,3 +3,8 @@ tcs_platform_add:
     defaults:
         _controller: TCSPlatformBundle:Article:addArticle
 
+
+tcs_platform_articles:
+    path: /articles
+    defaults:
+        _controller: TCSPlatformBundle:Article:show

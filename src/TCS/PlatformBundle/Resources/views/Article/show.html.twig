@@ -1,0 +1,45 @@
+{%  extends "TCSCoreBundle::layout.html.twig" %}
+
+{% block body %}
+
+    {# Critères de recherche #}
+    {# Auteur #}
+    <form method="get" action="{{ path('tcs_platform_articles') }}">
+        <label for="author">Auteur</label>
+        <select name="author" id="author">
+            <option value="">Indifférent</option>
+            {% for author in authors %}
+                <option value="{{ author }}">{{ author }}</option>
+            {% endfor %}
+        </select>
+
+        {# Date #}
+        <label for="activity">Date de sortie</label>
+        <select name="activity" id="activity">
+            <option value = "last-creation-date">Du plus récent au plus ancien</option>
+            <option value = "first-creation-date">Du plus ancien au plus récent</option>
+        </select>
+
+        <input type="submit" value="Actualiser" />
+    </form>
+
+    {# Affichage des articels #}
+    <ul>
+        {% for article in articles %}
+            <li>
+                {{ article.title }}
+                {{ article.content }}
+                {{ article.author }}
+                {{ article.creationDate|date('m/d/Y') }}
+            </li>
+        {% endfor %}
+
+    </ul>
+
+
+    {# Si l'utilisateur a au moins le rôle auteur, on lui propose d'ajouter un article #}
+    {% if is_granted('ROLE_AUTHOR') %}
+        <a href="{{ path('tcs_platform_add') }}">Ajouter un article</a>
+    {% endif %}
+
+{% endblock %}
