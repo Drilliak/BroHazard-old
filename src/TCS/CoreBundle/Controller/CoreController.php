@@ -10,8 +10,7 @@ namespace TCS\CoreBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\HttpFoundation\Request;
-use TCS\UserBundle\Entity\User;
+use Symfony\Component\Finder\Exception\AccessDeniedException;
 
 class CoreController extends Controller
 {
@@ -67,6 +66,19 @@ class CoreController extends Controller
         }
         throw new NotFoundHttpException('Page inexistante');
 
+    }
+
+    public function adminAction(){
+        if (!$this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+            // Sinon on déclenche une exception « Accès interdit »
+            throw new AccessDeniedException('Accès limité aux administateurs.');
+        }
+
+        $repository = $this->getDoctrine()->getManager()->getRepository('TCSUserBundle:User');
+
+        $users = $repository->findBy(array(), array('usernameCanonical' => 'asc'));
+
+        return $this->render('TCSCoreBundle:Core:admin.html.twig', array('users' => $users));
     }
 
 

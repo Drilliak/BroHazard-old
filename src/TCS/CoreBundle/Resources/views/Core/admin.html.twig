@@ -1,0 +1,36 @@
+
+{%  extends "TCSCoreBundle::layout.html.twig" %}
+
+{% block body %}
+    <input type="text" id = "searchTool" />
+
+    <table>
+
+        {% for user in users %}
+            <tr class = "user">
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.lastLogin|date("m/d/Y") }}</td>
+
+            </tr>
+        {% endfor %}
+
+
+    </table>
+
+    <script type="text/javascript">
+        document.getElementById('searchTool').addEventListener('keyup', function(e){
+            var recherche = this.value.toLowerCase();
+            var documents = document.querySelectorAll('.user');
+
+            Array.prototype.forEach.call(documents, function(document){
+                if (document.innerHTML.toLowerCase().indexOf(recherche) > -1){
+                    document.style.display = 'block';
+                }
+                else {
+                    document.style.display = 'none';
+                }
+            });
+        });
+    </script>
+{% endblock %}
