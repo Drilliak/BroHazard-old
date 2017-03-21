@@ -30,10 +30,9 @@ header
   background-image: linear-gradient(to bottom, #C82829, #880000);
   display: flex;
   align-items: flex-end;
+  justify-content: space-around;
   font-family: 'BigNoodle';
   width: 100%;
-  margin: 0;
-  padding: 0;
   border-bottom: 4px solid black;
   height: 80px;
 }
@@ -41,22 +40,20 @@ header
 /*Titre + logo*/
 #logo
 {
-  height: 80px;
-  margin: 0;
   display: flex;
+  align-items: center;
+  height: 80px;
 }
 
 #img_logo
 {
-  height:70px;
-  margin:5px;
+  height:80%;
 }
 
 h1
 {
   font-family:'KeepCalm';
-  margin-top: 20px;
-  padding-top: 0;
+  padding-left: 5px;
 }
 
 /*Barre navigation*/
@@ -64,12 +61,11 @@ h1
 {
   padding: 0;
   margin: 0;
-  margin-left: 100px;
   list-style-type: none;
   display: flex;
   text-align: left;
   font-weight : bold;
-  justify-content: space-around;
+  justify-content: space-between;
   width:100%;
 }
 
@@ -125,9 +121,8 @@ h1
 /*identification / inscription*/
 #authenticate
 {
-  position: relative;
   display: flex;
-  left: 50px;
+  align-items: center;
 }
 
 #connexion_form
@@ -143,10 +138,30 @@ h1
   display: flex;
   flex-direction: row;
   justify-content: center;
+  padding-top: 2px;
 }
 
 #inscription_bloc
 {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 5px;
+}
+
+#connected_bloc
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#connected_links
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
