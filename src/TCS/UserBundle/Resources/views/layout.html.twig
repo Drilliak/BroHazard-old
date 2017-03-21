@@ -1,11 +1,12 @@
 
 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-    <p>Connecté en tant que {{ app.user.username }} </p>
-    <a href = "{{ path('fos_user_profile_show') }}">Profil</a>
-    {% if is_granted('ROLE_ADMIN') %}
-        <a href="{{ path('tcs_core_admin') }}">Administration</a>
-    {% endif %}
-    <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+    <div id="connected_bloc">
+ +        <p>Connecté en tant que {{ app.user.username }} </p>
+ +        <div id="connected_links">
+ +            <a href = "{{ path('fos_user_profile_show') }}">Profil</a>
+ +            <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+ +        </div>
+ +    </div>
 
 {% else %}
 
