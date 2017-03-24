@@ -1,13 +1,18 @@
 {%  extends "TCSPlatformBundle::layout.html.twig" %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('css/article/addArticle.css') }}" rel="stylesheet" />
+{% endblock %}
+
 {% block script %}
     <script src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
     <script>
         tinymce.init({
             selector: 'textarea',
             theme: 'modern',
-            width: 600,
-            height: 300,
+            width: 1000,
+            height: 600,
             plugins: [
                 'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
                 'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
@@ -25,9 +30,10 @@
 {% endblock %}
 
 {% block body %}
-    <form method="post" action="">
-        <textarea></textarea>
-        <input type="submit" value="soumettre">
-    </form>
-
+    <div id="article_form_bloc">
+        <form method="post" action="">
+            <textarea></textarea>
+            <input type="submit" value="Poster l'article">
+        </form>
+    </div>
 {% endblock %}

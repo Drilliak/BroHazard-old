@@ -15,18 +15,20 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('img/logo.png') }}" />
     </head>
     <body>
-        <div id="bloc_page">
+
 
             {% block header %}
                  {{ include("TCSCoreBundle::header.html.twig") }}
             {% endblock %}
 
-            {% block body %} {% endblock %}
+            <div id="bloc_page">
+                {% block body %} {% endblock %}
+            </div>
 
             <footer>
                 <p>Copyright 2017 tous droits réservés<p>
                 <p><a href = "">Nous contacter</a></p>
             </footer>
-        </div>
+
     </body>
 </html>
