@@ -1,0 +1,17 @@
+#sort_bloc form
+{
+    margin-left: 10%;
+    display: flex;
+    flex-direction: column;
+}
+
+#sort_bloc div
+{
+    margin: 2px 0px;
+}
+
+#sort_bloc form input
+{
+    width: 100px;
+    margin-top: 2px;
+}

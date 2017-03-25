@@ -1,27 +1,38 @@
 {%  extends "TCSCoreBundle::layout.html.twig" %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('css/article/listArticle.css') }}" rel="stylesheet" />
+{% endblock %}
+
 {% block body %}
 
     {# Critères de recherche #}
     {# Auteur #}
-    <form method="get" action="{{ path('tcs_platform_articles') }}">
-        <label for="author">Auteur</label>
-        <select name="author" id="author">
-            <option value="">Indifférent</option>
-            {% for author in authors %}
-                <option value="{{ author }}">{{ author }}</option>
-            {% endfor %}
-        </select>
+    <div id="sort_bloc">
+        <form method="get" action="{{ path('tcs_platform_articles') }}">
+            <div>
+                <label for="author">Auteur</label>
+                <select name="author" id="author">
+                    <option value="">Indifférent</option>
+                    {% for author in authors %}
+                        <option value="{{ author }}">{{ author }}</option>
+                    {% endfor %}
+                </select>
+            </div>
 
-        {# Date #}
-        <label for="activity">Date de sortie</label>
-        <select name="activity" id="activity">
-            <option value = "last-creation-date">Du plus récent au plus ancien</option>
-            <option value = "first-creation-date">Du plus ancien au plus récent</option>
-        </select>
+            {# Date #}
+            <div>
+                <label for="activity">Date de sortie</label>
+                <select name="activity" id="activity">
+                    <option value = "last-creation-date">Du plus récent au plus ancien</option>
+                    <option value = "first-creation-date">Du plus ancien au plus récent</option>
+                </select>
+            </div>
 
-        <input type="submit" value="Actualiser" />
-    </form>
+            <input type="submit" value="Actualiser" />
+        </form>
+    </div>
 
     {# Affichage des articels #}
     <ul>
