@@ -7,10 +7,31 @@
     <table>
 
         {% for user in users %}
-            <tr class = "user">
+            <tr class="user">
+
                 <td>{{ user.username }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.lastLogin|date("m/d/Y") }}</td>
+                <td><select name="">
+                        {%  if user.roles|first == "ROLE_USER" %}
+                        <option value = "user" selected = "true">Utilisateur</option>
+                        {% else %}
+                        <option value = "user">Utilisateur</option>
+                        {% endif %}
+
+                        {% if user.roles|first == "ROLE_AUTHOR" %}
+                        <option value = "author" selected = "true" >Auteur</option>
+                        {% else %}
+                        <option value = "author" >Auteur</option>
+                        {% endif %}
+
+                        {%  if user.roles|first == "ROLE_ADMIN" %}
+                        <option value = "admin" selected = "true">Administrateur</option>
+                        {% else %}
+                        <option value = "admin" >Administrateur</option>
+                        {% endif %}
+                    </select>
+                </td>
 
             </tr>
         {% endfor %}
