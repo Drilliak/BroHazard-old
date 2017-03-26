@@ -32,8 +32,14 @@
 {% block body %}
     <div id="article_form_bloc">
         <form method="post" action="">
-            <textarea></textarea>
+            <textarea id="textArea"></textarea>
             <input type="submit" value="Poster l'article">
         </form>
     </div>
+
+    <script>
+        document.getElementById('textArea').addEventListener('keypress', function(e){
+            console.log("coucou");
+        });
+    </script>
 {% endblock %}
