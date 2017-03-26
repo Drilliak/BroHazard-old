@@ -66,7 +66,6 @@ h1
   text-align: left;
   font-weight : bold;
   justify-content: space-between;
-  width:100%;
 }
 
 .nav_menu a
@@ -85,7 +84,7 @@ h1
 .nav_menu li
 {
   float : left;
-  width: 150px;
+  width: 120px;
 }
 
 .nav_menu li:hover ul
@@ -110,7 +109,7 @@ h1
 
 .dropdown_menu li
 {
-  width: 100px;
+  width: 80px;
   padding: 4px;
   margin: 0;
   border-left: 1px solid black;
@@ -171,3 +170,39 @@ h1
   margin-right: 3px;
 }
 
+
+/*Responsiv design*/
+
+@media screen and (max-width: 1200px)
+{
+  header
+  {
+    justify-content: space-between;
+  }
+
+  #logo
+  {
+    margin-left: 5px;
+  }
+
+  .nav_menu li
+  {
+    width: auto;
+    margin: 0px 5px;
+  }
+
+  .dropdown_menu li
+  {
+    width: auto;
+  }
+
+  .dropdown_menu
+  {
+    width: auto;
+  }
+
+  #authenticate
+  {
+    margin-right: 5px;
+  }
+}
